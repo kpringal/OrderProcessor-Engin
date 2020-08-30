@@ -5,6 +5,6 @@ namespace Order.ProcessingEngin.Factories.Interfaces
 {
     public interface IRuleCommandFacotry
     {
-        IRuleCommand GetRuleCommands(RuleCommandEnum ruleCommand);
+        IRuleCommand GetRuleCommands(RuleCommandEnum ruleCommand); 
     }
 }

@@ -4,7 +4,7 @@ namespace Order.ProcessingEngin.RuleCommands.Interfaces
 {
     public interface IRuleCommand
     {
-        RuleCommandEnum RuleCommand { get; }
+        RuleCommandEnum RuleCommand { get; } 
 
         bool Execute();
     }
