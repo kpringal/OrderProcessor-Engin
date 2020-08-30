@@ -8,9 +8,9 @@ namespace Order.ProcessingEngin.RuleCommands
     {
         public RuleCommandEnum RuleCommand { get; }
 
-        public AddFirsAidVideoRule(RuleCommandEnum ruleCommand)
+        public AddFirsAidVideoRule()
         {
-            RuleCommand = ruleCommand;
+            RuleCommand = RuleCommandEnum.AddFirsAidVideo;
         }
 
         public bool Execute()

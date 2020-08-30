@@ -8,9 +8,9 @@ namespace Order.ProcessingEngin.RuleCommands
     {
         public RuleCommandEnum RuleCommand { get; }
 
-        public SendMailRule(RuleCommandEnum ruleCommand)
+        public SendMailRule()
         {
-            RuleCommand = ruleCommand;
+            RuleCommand = RuleCommandEnum.SendMail;
         }
 
         public bool Execute()

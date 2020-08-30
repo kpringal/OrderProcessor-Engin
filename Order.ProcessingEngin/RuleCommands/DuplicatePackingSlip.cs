@@ -8,9 +8,9 @@ namespace Order.ProcessingEngin.RuleCommands
     {
         public RuleCommandEnum RuleCommand { get; }
 
-        public DuplicatePackingSlip(RuleCommandEnum ruleCommand)
+        public DuplicatePackingSlip()
         {
-            RuleCommand = ruleCommand;
+            RuleCommand = RuleCommandEnum.GenerateDuplicatePackingSlip;
         }
 
         public bool Execute()

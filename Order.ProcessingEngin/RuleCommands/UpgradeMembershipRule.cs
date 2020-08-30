@@ -8,9 +8,9 @@ namespace Order.ProcessingEngin.RuleCommands
     {
         public RuleCommandEnum RuleCommand { get; }
 
-        public UpgradeMembershipRule(RuleCommandEnum ruleCommand)
+        public UpgradeMembershipRule()
         {
-            RuleCommand = ruleCommand;
+            RuleCommand = RuleCommandEnum.UpgradeMembership;
         }
 
         public bool Execute()

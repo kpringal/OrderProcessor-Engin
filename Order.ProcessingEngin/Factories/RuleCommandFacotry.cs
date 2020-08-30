@@ -13,25 +13,25 @@ namespace Order.ProcessingEngin.Factories
             switch (ruleCommand)
             {
                 case RuleCommandEnum.GeneratePackingSlip:
-                    return new PackingSlipRule(ruleCommand);
+                    return new PackingSlipRule();
 
                 case RuleCommandEnum.GenerateDuplicatePackingSlip:
-                    return new DuplicatePackingSlip(ruleCommand);
+                    return new DuplicatePackingSlip();
 
                 case RuleCommandEnum.ActivateMembership:
-                    return new ActivateMembershipRule(ruleCommand);
+                    return new ActivateMembershipRule();
 
                 case RuleCommandEnum.UpgradeMembership:
-                    return new ActivateMembershipRule(ruleCommand);
+                    return new UpgradeMembershipRule();
 
                 case RuleCommandEnum.SendMail:
-                    return new ActivateMembershipRule(ruleCommand);
+                    return new SendMailRule();
 
                 case RuleCommandEnum.AddFirsAidVideo:
-                    return new ActivateMembershipRule(ruleCommand);
+                    return new AddFirsAidVideoRule();
 
                 case RuleCommandEnum.GenerateCommisionPayment:
-                    return new ActivateMembershipRule(ruleCommand);
+                    return new CommisionPaymentRule();
 
                 default:
                     Console.WriteLine("Unhandeled command");

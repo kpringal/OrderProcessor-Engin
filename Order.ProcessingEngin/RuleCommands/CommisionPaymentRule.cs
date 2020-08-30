@@ -8,9 +8,9 @@ namespace Order.ProcessingEngin.RuleCommands
     {
         public RuleCommandEnum RuleCommand { get; }
 
-        public CommisionPaymentRule(RuleCommandEnum ruleCommand)
+        public CommisionPaymentRule()
         {
-            RuleCommand = ruleCommand;
+            RuleCommand = RuleCommandEnum.GenerateCommisionPayment;
         }
 
         public bool Execute()

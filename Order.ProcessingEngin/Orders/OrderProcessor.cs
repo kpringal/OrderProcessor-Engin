@@ -12,12 +12,14 @@ namespace Order.ProcessingEngin.Orders
         public readonly OrderEnum Order;
         public readonly IRuleCommandFacotry RuleCommandFacotry;
         public readonly bool IsContinueOnFail;
-        protected IEnumerable<IRuleCommand> RuleCommands { get; private set; }
+        public IEnumerable<IRuleCommand> RuleCommands { get; private set; }
 
         public OrderProcessor(OrderEnum order, IRuleCommandFacotry ruleCommandFacotry, bool isContinueOnFail)
         {
+            RuleCommandFacotry = ruleCommandFacotry 
+                ?? throw new NullReferenceException("Rule command facotry should not be null");
+
             Order = order;
-            RuleCommandFacotry = ruleCommandFacotry;
             IsContinueOnFail = isContinueOnFail;
             Console.WriteLine($"Order processor created for {Order.ToString()}");
         }
@@ -25,7 +27,7 @@ namespace Order.ProcessingEngin.Orders
 
         public int RunCommands()
         {
-            var RuleCommands = GetRulesCommands().ToArray();
+            RuleCommands = GetRulesCommands().ToArray();
             Console.WriteLine($"Below Rules have been created");
             Console.WriteLine($"{ string.Join("\n", RuleCommands.Select(x => x.RuleCommand))}");
             var commands = RuleCommands.Count();
@@ -50,11 +52,11 @@ namespace Order.ProcessingEngin.Orders
 
             switch (Order)
             {
-                case OrderEnum.PhysicalProduct:
+                case OrderEnum.Book:
                     yield return RuleCommandFacotry.GetRuleCommands(RuleCommandEnum.GeneratePackingSlip);
                     yield return RuleCommandFacotry.GetRuleCommands(RuleCommandEnum.GenerateCommisionPayment);
                     break;
-                case OrderEnum.Book:
+                case OrderEnum.PhysicalProduct:
                     yield return RuleCommandFacotry.GetRuleCommands(RuleCommandEnum.GenerateDuplicatePackingSlip);
                     yield return RuleCommandFacotry.GetRuleCommands(RuleCommandEnum.GenerateCommisionPayment);
                     break;
